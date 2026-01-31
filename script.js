@@ -56,7 +56,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Order button functions - Replace these URLs with actual Swiggy and Zomato deep links
 function orderSwiggy() {
     // Replace with your actual Swiggy restaurant URL
-    const swiggyUrl = 'https://www.swiggy.com/'; // Add your restaurant link here
+    const swiggyUrl = 'https://www.swiggy.com/menu/756786?source=sharing'; // Add your restaurant link here
     window.open(swiggyUrl, '_blank');
     
     // For mobile deep linking (optional):
@@ -65,7 +65,7 @@ function orderSwiggy() {
 
 function orderZomato() {
     // Replace with your actual Zomato restaurant URL
-    const zomatoUrl = 'https://www.zomato.com/'; // Add your restaurant link here
+    const zomatoUrl = 'https://zomato.onelink.me/xqzv/67qmgk5p'; // Add your restaurant link here
     window.open(zomatoUrl, '_blank');
     
     // For mobile deep linking (optional):
