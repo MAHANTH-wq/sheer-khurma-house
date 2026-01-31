@@ -73,6 +73,23 @@ body {
     font-size: 1.8rem;
 }
 
+/* Logo image sizing */
+.logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+/* Slightly smaller logo on narrow screens */
+@media (max-width: 600px) {
+    .logo-img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -238,14 +255,16 @@ body {
 .highlight::after {
     content: '';
     position: absolute;
-    bottom: 10px;
-    left: -10px;
-    right: -10px;
-    height: 20px;
+    /* place slightly below the text baseline so it doesn't cut through glyphs */
+    bottom: -6px;
+    left: -6px;
+    right: -6px;
+    height: 14px;
     background: var(--primary-light);
-    opacity: 0.3;
+    opacity: 0.22;
     z-index: -1;
-    transform: skew(-5deg);
+    transform: skew(-3deg);
+    border-radius: 6px;
 }
 
 .hero-subtitle {
@@ -302,7 +321,7 @@ body {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 3rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -314,6 +333,18 @@ body {
     animation: bounce 2s infinite;
 }
 
+/* ensure scroll indicator is above overlays and clearly visible */
+.scroll-indicator {
+    z-index: 20;
+    pointer-events: none;
+}
+
+@media (max-width: 900px) {
+    .scroll-indicator {
+        bottom: 2rem; /* align with desktop spacing on smaller screens */
+    }
+}
+
 @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(-10px); }
@@ -323,6 +354,11 @@ body {
     width: 2px;
     height: 40px;
     background: linear-gradient(to bottom, var(--primary-color), transparent);
+}
+
+.scroll-line {
+    border-radius: 2px;
+    opacity: 0.9;
 }
 
 /* About Section */
@@ -518,6 +554,18 @@ body {
     justify-content: center;
 }
 
+/* Images inside menu items */
+.menu-item-image img.menu-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-item.featured .menu-item-image img.menu-item-img {
+    filter: brightness(0.95) saturate(0.95);
+}
+
 .menu-item.featured .menu-item-image .image-placeholder {
     background: rgba(255, 255, 255, 0.1);
 }
@@ -594,6 +642,12 @@ body {
 
 .menu-item.featured .item-serving {
     color: rgba(255, 255, 255, 0.8);
+}
+
+/* Hide item price and serving in the menu as requested */
+.menu .item-price,
+.menu .item-serving {
+    display: none !important;
 }
 
 /* Reviews Section */
